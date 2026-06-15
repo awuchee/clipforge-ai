@@ -1,0 +1,12 @@
+node_modules/
+.next/
+dist/
+build/
+.env
+.env.local
+*.log
+.DS_Store
+backend/generated/
+backend/storage-data/
+backend/token.env
+.claude/settings.local.json

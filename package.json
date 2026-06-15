@@ -1,0 +1,23 @@
+{
+  "name": "clipforge-ai",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "setup": "node scripts/setup.js",
+    "dev": "node scripts/dev.js",
+    "dev:all": "node scripts/dev.js",
+    "dev:web": "npm run dev --workspace=frontend",
+    "dev:api": "npm run dev --workspace=backend",
+    "dev:worker": "npm run dev:worker --workspace=backend",
+    "build:web": "npm run build --workspace=frontend",
+    "build:api": "npm run build --workspace=backend",
+    "services:up": "docker compose up -d postgres redis",
+    "services:down": "docker compose down"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.3"
+  }
+}
