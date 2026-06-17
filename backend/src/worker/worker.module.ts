@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { validateEnv } from '../config/env.validation';
 import { PrismaModule } from '../prisma/prisma.module';
 import { StorageModule } from '../storage/storage.module';
 import { QueueModule } from '../queue/queue.module';
@@ -22,7 +21,7 @@ import { StaleJobCleanupService } from './stale-job-cleanup.service';
 import { WorkerHealthController } from './worker-health.controller';
 
 @Module({
-  imports: [ConfigModule.forRoot({ isGlobal: true, validate: validateEnv }), PrismaModule, StorageModule, QueueModule],
+  imports: [ConfigModule.forRoot({ isGlobal: true,}), PrismaModule, StorageModule, QueueModule],
   controllers: [WorkerHealthController],
   providers: [
     VideoProcessingProcessor,
