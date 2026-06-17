@@ -1,12 +1,12 @@
 {
-  "name": "clipforge-backend",
+  "name": "vixclip-backend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "build": "nest build",
     "dev": "nest start --watch",
     "dev:worker": "nest start --watch --entryFile worker/main",
-    "start": "node dist/main",
+    "start": "node dist/main.js",
     "start:worker": "node dist/worker/main",
     "lint": "eslint \"src/**/*.ts\"",
     "prisma:generate": "prisma generate",

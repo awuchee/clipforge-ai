@@ -29,7 +29,7 @@ async function bootstrap() {
 
   const port = config.get<number>('PORT', 4000);
   await app.listen(port);
-  console.log(`[API] ClipForge API running on http://localhost:${port}/api`);
+  console.log(`[API] VixClip API running on http://localhost:${port}/api`);
   console.log(`[API] Health check:   http://localhost:${port}/health`);
   console.log(`[API] System status:  http://localhost:${port}/system-status`);
 }

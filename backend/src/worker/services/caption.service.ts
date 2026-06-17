@@ -172,6 +172,19 @@ export function flattenWords(segments: TranscriptSegment[], clipStart: number, c
   return words;
 }
 
+/** Evenly distributes the words of `text` across [startSec, endSec), used to synthesize word timings for TTS audio. */
+export function evenlySplitWords(text: string, startSec: number, endSec: number): TranscriptWord[] {
+  const words = text.trim().split(/\s+/).filter(Boolean);
+  if (words.length === 0) return [];
+
+  const span = (endSec - startSec) / words.length;
+  return words.map((word, i) => ({
+    word,
+    start: startSec + i * span,
+    end: startSec + (i + 1) * span,
+  }));
+}
+
 @Injectable()
 export class CaptionService {
   /** Builds a standard .srt subtitle file with times relative to the clip start. */

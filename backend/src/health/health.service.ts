@@ -5,9 +5,9 @@ import { Queue } from 'bullmq';
 import Redis from 'ioredis';
 import { PrismaService } from '../prisma/prisma.service';
 import { getRedisConnectionOptions } from '../config/redis.config';
-import { VIDEO_PROCESSING_QUEUE, CLIP_RENDER_QUEUE } from '../queue/queue.constants';
+import { VIDEO_PROCESSING_QUEUE, CLIP_RENDER_QUEUE, AD_VIDEO_RENDER_QUEUE } from '../queue/queue.constants';
 
-export const WORKER_HEARTBEAT_KEY = 'clipforge:worker:heartbeat';
+export const WORKER_HEARTBEAT_KEY = 'vixclip:worker:heartbeat';
 export const WORKER_HEARTBEAT_TTL_SEC = 30;
 
 export interface CheckResult {
@@ -25,6 +25,7 @@ export class HealthService {
     private config: ConfigService,
     @InjectQueue(VIDEO_PROCESSING_QUEUE) private videoQueue: Queue,
     @InjectQueue(CLIP_RENDER_QUEUE) private renderQueue: Queue,
+    @InjectQueue(AD_VIDEO_RENDER_QUEUE) private adVideoRenderQueue: Queue,
   ) {}
 
   async checkDatabase(): Promise<CheckResult> {
@@ -90,14 +91,16 @@ export class HealthService {
   }
 
   async getQueueStatus() {
-    const [videoCounts, renderCounts] = await Promise.all([
+    const [videoCounts, renderCounts, adVideoRenderCounts] = await Promise.all([
       this.videoQueue.getJobCounts(),
       this.renderQueue.getJobCounts(),
+      this.adVideoRenderQueue.getJobCounts(),
     ]);
 
     return {
       videoProcessing: { name: VIDEO_PROCESSING_QUEUE, counts: videoCounts },
       clipRender: { name: CLIP_RENDER_QUEUE, counts: renderCounts },
+      adVideoRender: { name: AD_VIDEO_RENDER_QUEUE, counts: adVideoRenderCounts },
     };
   }
 

@@ -48,9 +48,10 @@ export function validateEnv(rawConfig: Record<string, unknown>): Record<string, 
   // but transcription (Whisper) has no offline fallback and is REQUIRED for video processing.
   if (!get('OPENAI_API_KEY')) {
     warnings.push(
-      'OPENAI_API_KEY not set — viral-metadata generation will use offline fallback heuristics, ' +
-        'but Whisper transcription has no offline fallback: video processing jobs will fail until ' +
-        'OPENAI_API_KEY is configured.',
+      'OPENAI_API_KEY not set — viral-metadata generation and ad plan generation will use offline ' +
+        'fallback heuristics, and ad voiceover will use local Piper TTS (run backend/scripts/setup-piper ' +
+        'if voices are missing). Whisper transcription has no offline fallback: video processing jobs ' +
+        'will fail until OPENAI_API_KEY is configured.',
     );
   }
 
@@ -67,7 +68,7 @@ export function validateEnv(rawConfig: Record<string, unknown>): Record<string, 
 
   if (errors.length > 0) {
     const message =
-      '\n\nClipForge configuration error — fix backend/.env before starting:\n' +
+      '\n\nVixClip configuration error — fix backend/.env before starting:\n' +
       errors.map((e) => `  ✗ ${e}`).join('\n') +
       '\n\nSee backend/.env.example for the full list of variables.\n';
     throw new Error(message);
@@ -75,7 +76,7 @@ export function validateEnv(rawConfig: Record<string, unknown>): Record<string, 
 
   for (const warning of warnings) {
     // eslint-disable-next-line no-console
-    console.warn(`[ClipForge config] WARNING: ${warning}`);
+    console.warn(`[VixClip config] WARNING: ${warning}`);
   }
 
   return rawConfig;

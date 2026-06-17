@@ -64,7 +64,7 @@ export class VideoProcessingProcessor extends WorkerHost {
     const watermark = owner?.plan === 'FREE';
 
     const baseTmp = this.config.get<string>('WORKER_TMP_DIR') || tmpdir();
-    const workDir = await mkdtemp(join(baseTmp, 'clipforge-'));
+    const workDir = await mkdtemp(join(baseTmp, 'vixclip-'));
 
     try {
       await this.prisma.project.update({

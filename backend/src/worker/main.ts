@@ -13,7 +13,7 @@ async function bootstrap() {
   const port = config.get<number>('WORKER_PORT', 4100);
 
   await app.listen(port);
-  Logger.log(`ClipForge worker running — listening for queue jobs`, 'Worker');
+  Logger.log(`VixClip worker running — listening for queue jobs`, 'Worker');
   Logger.log(`Worker health: http://localhost:${port}/worker-health`, 'Worker');
 }
 

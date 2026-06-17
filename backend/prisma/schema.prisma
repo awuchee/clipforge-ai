@@ -29,6 +29,15 @@ enum SourceType {
   UPLOAD_AUDIO
 }
 
+enum AdProjectStatus {
+  DRAFT
+  PLAN_READY
+  QUEUED
+  PROCESSING
+  DONE
+  FAILED
+}
+
 model User {
   id        String   @id @default(cuid())
   email     String   @unique
@@ -47,7 +56,8 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  projects Project[]
+  projects   Project[]
+  adProjects AdProject[]
 
   @@map("users")
 }
@@ -120,4 +130,32 @@ model Clip {
 
   @@map("clips")
   @@index([projectId])
+}
+
+model AdProject {
+  id                 String          @id @default(cuid())
+  templateId         String
+  productName        String
+  productDescription String
+  targetAudience     String?
+  tone               String?
+  productImageUrls   String[]
+  status             AdProjectStatus @default(DRAFT)
+  errorMessage       String?
+  plan               Json?
+
+  storageKey   String?
+  thumbnailKey String?
+  srtKey       String?
+  videoUrl     String?
+  durationSec  Int?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("ad_projects")
+  @@index([userId])
 }

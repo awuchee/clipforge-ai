@@ -54,7 +54,7 @@ export class ClipRenderProcessor extends WorkerHost {
     const watermark = owner?.plan === 'FREE';
 
     const baseTmp = this.config.get<string>('WORKER_TMP_DIR') || tmpdir();
-    const workDir = await mkdtemp(join(baseTmp, 'clipforge-render-'));
+    const workDir = await mkdtemp(join(baseTmp, 'vixclip-render-'));
 
     try {
       await this.prisma.clip.update({ where: { id: clipId }, data: { status: 'PROCESSING', errorMessage: null } });
