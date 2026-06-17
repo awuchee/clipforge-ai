@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Starts the full ClipForge stack locally as one product:
+ * Starts the full VixClip stack locally as one product:
  *   - best-effort `docker compose up -d` for Postgres + Redis
  *   - waits (briefly) for Postgres/Redis ports to accept connections
  *   - runs frontend, backend API, and worker together via concurrently,

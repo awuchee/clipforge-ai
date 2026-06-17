@@ -1,4 +1,4 @@
-# ClipForge AI — Deployment Guide
+# VixClip AI — Deployment Guide
 
 Target stack: **Vercel** (frontend), **Railway or Render** (backend API + worker,
 two services from the same repo), **Supabase** (Postgres), **Upstash** (Redis).

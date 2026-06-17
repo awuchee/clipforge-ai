@@ -1,16 +1,16 @@
 services:
   postgres:
     image: postgres:16-alpine
-    container_name: clipforge-postgres
+    container_name: vixclip-postgres
     restart: unless-stopped
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: clipforge
+      POSTGRES_DB: vixclip
     ports:
       - "5432:5432"
     volumes:
-      - clipforge-postgres-data:/var/lib/postgresql/data
+      - vixclip-postgres-data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s
@@ -19,7 +19,7 @@ services:
 
   redis:
     image: redis:7-alpine
-    container_name: clipforge-redis
+    container_name: vixclip-redis
     restart: unless-stopped
     ports:
       - "6379:6379"
@@ -30,4 +30,4 @@ services:
       retries: 10
 
 volumes:
-  clipforge-postgres-data:
+  vixclip-postgres-data:

@@ -40,7 +40,7 @@ export function MobileNav() {
             <div className="flex h-16 items-center justify-between border-b border-border px-6 font-semibold">
               <span className="flex items-center gap-2">
                 <Sparkles className="h-5 w-5 text-primary" />
-                ClipForge AI
+                VixClip AI
               </span>
               <Button variant="ghost" size="icon" aria-label="Close menu" onClick={() => setOpen(false)}>
                 <X className="h-4 w-4" />

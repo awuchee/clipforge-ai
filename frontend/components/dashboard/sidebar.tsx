@@ -13,7 +13,7 @@ export function DashboardSidebar() {
     <aside className="hidden w-64 flex-col border-r border-border bg-card/40 md:flex">
       <div className="flex h-16 items-center gap-2 border-b border-border px-6 font-semibold">
         <Sparkles className="h-5 w-5 text-primary" />
-        ClipForge AI
+        VixClip AI
       </div>
       <nav className="flex-1 space-y-1 p-4">
         {NAV_LINKS.map((link) => {

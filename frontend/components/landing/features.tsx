@@ -48,7 +48,7 @@ export function Features() {
           Everything you need to go viral
         </h2>
         <p className="mt-4 text-muted-foreground">
-          From raw footage to publish-ready clips — ClipForge AI handles the entire repurposing
+          From raw footage to publish-ready clips — VixClip AI handles the entire repurposing
           pipeline.
         </p>
       </div>

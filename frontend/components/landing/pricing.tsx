@@ -15,7 +15,7 @@ const plans = [
   {
     name: 'Free',
     price: '$0',
-    description: 'Try ClipForge AI on a few videos.',
+    description: 'Try VixClip AI on a few videos.',
     features: ['3 videos / month', 'Auto captions', 'Watermarked exports', 'Standard highlight detection'],
     cta: 'Start for free',
     href: '/register',

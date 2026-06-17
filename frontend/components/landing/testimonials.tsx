@@ -6,7 +6,7 @@ const testimonials = [
     name: 'Maya Chen',
     role: 'Podcast host, 180K subs',
     quote:
-      "ClipForge found moments in my 90-minute episodes I would've scrolled right past. My Shorts views tripled.",
+      "VixClip found moments in my 90-minute episodes I would've scrolled right past. My Shorts views tripled.",
   },
   {
     name: 'Jordan Lee',
@@ -28,7 +28,7 @@ export function Testimonials() {
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Loved by creators</h2>
         <p className="mt-4 text-muted-foreground">
-          Join thousands of creators using ClipForge AI to grow their audience.
+          Join thousands of creators using VixClip AI to grow their audience.
         </p>
       </div>
 

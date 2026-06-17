@@ -8,7 +8,7 @@ export function LandingNavbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center gap-2 font-semibold">
           <Sparkles className="h-5 w-5 text-primary" />
-          ClipForge AI
+          VixClip AI
         </Link>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
           <Link href="#features" className="hover:text-foreground">

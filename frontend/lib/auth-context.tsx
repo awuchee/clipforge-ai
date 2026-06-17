@@ -31,7 +31,7 @@ type AuthContextValue = {
 
 const AuthContext = React.createContext<AuthContextValue | undefined>(undefined);
 
-const TOKEN_KEY = 'clipforge_token';
+const TOKEN_KEY = 'vixclip_token';
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = React.useState<User | null>(null);

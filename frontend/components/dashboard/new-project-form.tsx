@@ -100,7 +100,7 @@ export function NewProjectForm({ onCreated }: { onCreated: (project: Project) =>
 
       if (sourceType === 'YOUTUBE') {
         onCreated(project);
-        toast({ title: 'Project created', description: 'ClipForge AI is starting to process your video.', variant: 'success' });
+        toast({ title: 'Project created', description: 'VixClip AI is starting to process your video.', variant: 'success' });
         reset();
       } else {
         // Move to step 2: upload the file for this project.

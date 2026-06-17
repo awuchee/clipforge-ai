@@ -41,7 +41,7 @@ export default function LoginPage() {
   };
 
   return (
-    <AuthCard title="Welcome back" description="Log in to your ClipForge AI account">
+    <AuthCard title="Welcome back" description="Log in to your VixClip AI account">
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div className="space-y-2">
           <Label htmlFor="email">Email</Label>

@@ -15,7 +15,7 @@ export function AuthCard({
     <div className="flex min-h-screen flex-col items-center justify-center bg-background px-6 py-12">
       <Link href="/" className="mb-8 flex items-center gap-2 font-semibold">
         <Sparkles className="h-5 w-5 text-primary" />
-        ClipForge AI
+        VixClip AI
       </Link>
       <Card className="w-full max-w-sm">
         <CardHeader>

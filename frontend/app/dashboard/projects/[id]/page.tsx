@@ -189,7 +189,7 @@ export default function ProjectPage() {
               <h3 className="text-base font-medium">No clips yet</h3>
               <p className="mt-1 max-w-sm text-sm text-muted-foreground">
                 {ACTIVE_STATUSES.includes(project.status)
-                  ? 'ClipForge AI is analyzing your video — clips will appear here as soon as they’re ready.'
+                  ? 'VixClip AI is analyzing your video — clips will appear here as soon as they’re ready.'
                   : 'Clips will appear here once processing finishes.'}
               </p>
             </div>

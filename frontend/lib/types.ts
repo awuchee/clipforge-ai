@@ -95,3 +95,102 @@ export type ProjectStatus = {
   clipCount: number;
   updatedAt: string;
 };
+
+// --- Ad Studio ---
+
+export type AdProjectStatus = 'DRAFT' | 'PLAN_READY' | 'QUEUED' | 'PROCESSING' | 'DONE' | 'FAILED';
+
+export type AdTemplate = {
+  id: string;
+  platform: string;
+  name: string;
+  description: string;
+  aspectRatio: string;
+  maxDurationSec: number;
+  structure: string[];
+};
+
+export type AdStrategy = {
+  targetAudience: string;
+  coreMessage: string;
+  emotionalAngle: string;
+  conversionGoal: string;
+};
+
+export type AdScript = {
+  hook: string;
+  problem: string;
+  solution: string;
+  benefits: string;
+  callToAction: string;
+};
+
+export type AdScene = {
+  sceneNumber: number;
+  durationSeconds: number;
+  visualDescription: string;
+  onScreenText: string;
+  voiceover: string;
+  transitionType: 'cut' | 'fade' | 'zoom' | 'whip_pan' | 'slide';
+};
+
+export type AdVisualDirection = {
+  cameraStyle: string;
+  motionStyle: string;
+  background: string;
+  productFocus: string;
+};
+
+export type AdAudioDirection = {
+  voiceTone: string;
+  voiceGenderSuggestion: string;
+  musicMood: string;
+  pacing: string;
+};
+
+export type AdSocialOutput = {
+  tiktokCaption: string;
+  instagramCaption: string;
+  youtubeCaption: string;
+  hashtags: string[];
+};
+
+export type AdVideoPlan = {
+  adStrategy: AdStrategy;
+  script: AdScript;
+  scenes: AdScene[];
+  visualDirection: AdVisualDirection;
+  audioDirection: AdAudioDirection;
+  socialOutput: AdSocialOutput;
+};
+
+export type AdProject = {
+  id: string;
+  templateId: string;
+  productName: string;
+  productDescription: string;
+  targetAudience: string | null;
+  tone: string | null;
+  productImageUrls: string[];
+  status: AdProjectStatus;
+  errorMessage: string | null;
+  plan: AdVideoPlan | null;
+  storageKey: string | null;
+  thumbnailKey: string | null;
+  srtKey: string | null;
+  videoUrl: string | null;
+  thumbnailUrl: string | null;
+  srtUrl: string | null;
+  durationSec: number | null;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type AdProjectStatusResponse = {
+  id: string;
+  status: AdProjectStatus;
+  errorMessage: string | null;
+  videoUrl: string | null;
+  thumbnailUrl: string | null;
+  durationSec: number | null;
+};

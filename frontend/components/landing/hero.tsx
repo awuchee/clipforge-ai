@@ -44,7 +44,7 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-6 max-w-2xl text-lg text-muted-foreground"
         >
-          Drop in a YouTube link, video file, or podcast — ClipForge AI finds the highlights,
+          Drop in a YouTube link, video file, or podcast — VixClip AI finds the highlights,
           cuts vertical clips, writes hooks, and adds styled captions automatically.
         </motion.p>
 
@@ -139,7 +139,7 @@ export function Hero() {
             <div className="flex max-w-sm flex-col gap-4 text-left">
               <h3 className="text-xl font-semibold">From raw footage to ready-to-post clips</h3>
               <p className="text-sm text-muted-foreground">
-                ClipForge AI automatically finds your best moments, reframes them to 9:16, and adds
+                VixClip AI automatically finds your best moments, reframes them to 9:16, and adds
                 animated captions, hooks, and a virality score — all in one pass.
               </p>
               <div className="flex flex-col gap-3">

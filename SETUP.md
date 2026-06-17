@@ -1,6 +1,6 @@
-# ClipForge AI — Environment Setup Guide
+# VixClip AI — Environment Setup Guide
 
-A short, copy-paste guide to configure and run ClipForge AI.
+A short, copy-paste guide to configure and run VixClip AI.
 
 ## 1. Requirements
 
@@ -23,8 +23,8 @@ docker compose up -d
 
 **Expected output:** two containers created and `running`/`healthy`:
 ```
-✔ Container clipforge-postgres   Healthy
-✔ Container clipforge-redis      Healthy
+✔ Container vixclip-postgres   Healthy
+✔ Container vixclip-redis      Healthy
 ```
 
 ### Step 2 — Create your `.env` files
@@ -80,7 +80,7 @@ npm run dev
 each service ready:
 ```
 API    [Nest] Nest application successfully started
-WORKER [Worker] ClipForge worker running — listening for queue jobs
+WORKER [Worker] VixClip worker running — listening for queue jobs
 WEB    ▲ Next.js ready on http://localhost:3000
 ```
 
@@ -107,7 +107,7 @@ generated clips within a few minutes.
 ### Database (Postgres) — required
 
 ```ini
-DATABASE_URL="postgresql://postgres:postgres@localhost:5432/clipforge?schema=public"
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/vixclip?schema=public"
 ```
 
 ### Redis — required
@@ -157,7 +157,7 @@ NEXT_PUBLIC_API_URL=http://localhost:4000/api
 STORAGE_DRIVER=""          # "s3" | "local" — auto-detected if blank
 STORAGE_LOCAL_DIR=""
 S3_ENDPOINT=""
-S3_BUCKET="clipforge-uploads"
+S3_BUCKET="vixclip-uploads"
 S3_ACCESS_KEY_ID=""
 S3_SECRET_ACCESS_KEY=""
 S3_REGION="auto"

@@ -59,7 +59,7 @@ export function UploadDropzone({
     try {
       const updated = await uploadFile<Project>(`/projects/${projectId}/upload`, file, token, setProgress);
       onUploaded(updated);
-      toast({ title: 'Upload complete', description: 'ClipForge AI is starting to process your video.', variant: 'success' });
+      toast({ title: 'Upload complete', description: 'VixClip AI is starting to process your video.', variant: 'success' });
     } catch (err) {
       if (err instanceof ApiError && err.code === 'PLAN_LIMIT_REACHED') {
         onLimitReached?.();

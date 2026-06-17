@@ -7,7 +7,7 @@ import { ToastProvider } from '@/components/ui/toast';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'ClipForge AI — Turn long videos into viral clips',
+  title: 'VixClip AI — Turn long videos into viral clips',
   description:
     'AI-powered highlight detection, captions, and social-ready formatting for podcasts, streams, and long-form video.',
 };

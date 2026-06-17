@@ -9,4 +9,5 @@ build/
 backend/generated/
 backend/storage-data/
 backend/token.env
+backend/bin/piper/
 .claude/settings.local.json

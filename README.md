@@ -1,7 +1,8 @@
-# ClipForge AI
+# VixClip AI
 
-AI-powered video repurposing SaaS — turn long videos/podcasts into viral short clips with
-auto highlight detection, captions, and social-ready exports.
+AI Ad Video Generator + AI Clip Repurposing SaaS — turn long videos/podcasts into viral
+short clips with auto highlight detection, captions, and social-ready exports, and
+(roadmap) turn a product description into ready-to-post ad scripts and short ad videos.
 
 This repo contains the **foundation + async AI processing pipeline**: authentication,
 dashboard shell, storage/upload, and a Redis/BullMQ job queue + worker service that
@@ -10,13 +11,17 @@ captions (FFmpeg), and generates hook titles/hashtags/virality scores (GPT). Str
 (Free/Pro plans, checkout, webhooks, usage limits) is included; Google OAuth is not yet
 implemented.
 
+The existing clip-repurposing pipeline (above) is unchanged. A second product surface —
+**AI ad generation** — is being scaffolded alongside it; see
+[Ad generation architecture](#ad-generation-architecture-roadmap) below.
+
 For a step-by-step production environment setup, startup checklist, and
 troubleshooting guide, see [SETUP.md](SETUP.md).
 
 ## Project structure
 
 ```
-ClipForge AI/
+VixClip AI/
 ├── backend/    NestJS API (Auth, Users, Projects, Clips) + Prisma/PostgreSQL
 │                + BullMQ worker process (video processing pipeline)
 └── frontend/   Next.js 14 (App Router) + Tailwind + ShadCN-style UI
