@@ -1,9 +1,10 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
-if (!API_URL) {
-  throw new Error(
-    'NEXT_PUBLIC_API_URL is not set. Add it to frontend/.env.local (dev) or frontend/.env.production (prod).',
-  );
-}
+// In production builds, NODE_ENV is replaced by DefinePlugin with the literal
+// string "production", so this ternary is fully resolved at build time and
+// the production URL is hardcoded as a string constant — no env var can override it.
+const API_URL =
+  process.env.NODE_ENV === 'production'
+    ? 'https://clipforge-ai-5afc.onrender.com/api'
+    : (process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:4000/api');
 
 export class ApiError extends Error {
   status: number;
