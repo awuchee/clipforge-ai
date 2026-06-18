@@ -27,6 +27,6 @@ export class AllExceptionsFilter implements ExceptionFilter {
 
     const error = exception as Error;
     this.logger.error(`${request.method} ${request.url} -> 500: ${error?.message}`, error?.stack);
-    response.status(500).json({ statusCode: 500, message: 'Internal server error' });
+    response.status(500).json({ statusCode: 500, message: error?.message ?? 'Internal server error' });
   }
 }
