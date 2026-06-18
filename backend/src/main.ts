@@ -18,8 +18,13 @@ async function bootstrap() {
     }),
   );
 
+  const allowedOrigins = [
+    'https://clipforge-ai-frontend.vercel.app',
+    config.get<string>('FRONTEND_URL', 'http://localhost:3000'),
+    'http://localhost:3000',
+  ];
   app.enableCors({
-    origin: config.get<string>('FRONTEND_URL', 'http://localhost:3000'),
+    origin: (origin, cb) => cb(null, !origin || allowedOrigins.includes(origin)),
     credentials: true,
   });
 
