@@ -1,4 +1,9 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:4000/api';
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+if (!API_URL) {
+  throw new Error(
+    'NEXT_PUBLIC_API_URL is not set. Add it to frontend/.env.local (dev) or frontend/.env.production (prod).',
+  );
+}
 
 export class ApiError extends Error {
   status: number;
