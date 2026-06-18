@@ -1,10 +1,4 @@
-// In production builds, NODE_ENV is replaced by DefinePlugin with the literal
-// string "production", so this ternary is fully resolved at build time and
-// the production URL is hardcoded as a string constant — no env var can override it.
-const API_URL =
-  process.env.NODE_ENV === 'production'
-    ? 'https://clipforge-ai-5afc.onrender.com/api'
-    : (process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:4000/api');
+import { API_BASE_URL } from './config';
 
 export class ApiError extends Error {
   status: number;
@@ -25,7 +19,7 @@ type RequestOptions = Omit<RequestInit, 'body'> & {
 export async function apiFetch<T>(path: string, options: RequestOptions = {}): Promise<T> {
   const { body, token, headers, ...rest } = options;
 
-  const res = await fetch(`${API_URL}${path}`, {
+  const res = await fetch(`${API_BASE_URL}${path}`, {
     ...rest,
     headers: {
       'Content-Type': 'application/json',
@@ -63,7 +57,7 @@ export function uploadFile<T>(
 ): Promise<T> {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', `${API_URL}${path}`);
+    xhr.open('POST', `${API_BASE_URL}${path}`);
 
     if (token) {
       xhr.setRequestHeader('Authorization', `Bearer ${token}`);
